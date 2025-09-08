@@ -1,24 +1,121 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="8">
-        <iframe src="header.html" width="100%" height="170" style="border:none;" scrolling="no"></iframe>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <title>既存サイト + Unity埋め込み</title>
+  <link rel="stylesheet" href="style.css">
 
-    <body>
-        <center><img src="black.png"  width="800" height="500"></center>
+  <!-- 既存ヘッダーを iframe で読み込む場合 -->
+  <iframe src="header.html" width="100%" height="170" style="border:none;" scrolling="no"></iframe>
+</head>
+<body>
 
+  <header>
+    <h1>既存サイトのヘッダー</h1>
+  </header>
 
+  <main>
+    <p>ここは既存サイトのコンテンツです。</p>
 
+    <!-- Unity WebGL埋め込み -->
+    <section id="unity-section">
+      <h2>Unityコンテンツ</h2>
 
+      <div id="unity-container" class="unity-desktop">
+        <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
 
+        <div id="unity-loading-bar">
+          <div id="unity-logo"></div>
+          <div id="unity-progress-bar-empty">
+            <div id="unity-progress-bar-full"></div>
+          </div>
+        </div>
 
+        <div id="unity-warning"></div>
 
+        <div id="unity-footer">
+          <div id="unity-logo-title-footer"></div>
+          <div id="unity-fullscreen-button"></div>
+          <div id="unity-build-title">neutralizing</div>
+        </div>
+      </div>
+    </section>
 
+  </main>
 
+  <footer>
+    <p>© 2025 サイト名</p>
+  </footer>
 
-    </body>
+  <!-- Unity WebGLスクリプト -->
+  <script>
+    var canvas = document.querySelector("#unity-canvas");
 
+    function unityShowBanner(msg, type) {
+      var warningBanner = document.querySelector("#unity-warning");
+      function updateBannerVisibility() {
+        warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+      }
+      var div = document.createElement('div');
+      div.innerHTML = msg;
+      warningBanner.appendChild(div);
+      if (type == 'error') div.style = 'background: red; padding: 10px;';
+      else if (type == 'warning') {
+        div.style = 'background: yellow; padding: 10px;';
+        setTimeout(function() {
+          warningBanner.removeChild(div);
+          updateBannerVisibility();
+        }, 5000);
+      }
+      updateBannerVisibility();
+    }
 
+    var buildUrl = "/unity/Build"; // Unityビルドフォルダのパス
+    var loaderUrl = buildUrl + "/neutralizing.loader.js";
+
+    var config = {
+      dataUrl: buildUrl + "/neutralizing.data.br",
+      frameworkUrl: buildUrl + "/neutralizing.framework.js.br",
+      codeUrl: buildUrl + "/neutralizing.wasm.br",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "DefaultCompany",
+      productName: "neutralizing",
+      productVersion: "1.0",
+      showBanner: unityShowBanner
+    };
+
+    // モバイル対応
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      var meta = document.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+      document.getElementsByTagName('head')[0].appendChild(meta);
+      document.querySelector("#unity-container").className = "unity-mobile";
+      canvas.className = "unity-mobile";
+    } else {
+      canvas.style.width = "960px";
+      canvas.style.height = "600px";
+    }
+
+    document.querySelector("#unity-loading-bar").style.display = "block";
+
+    var script = document.createElement("script");
+    script.src = loaderUrl;
+    script.onload = () => {
+      createUnityInstance(canvas, config, (progress) => {
+        document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
+      }).then((unityInstance) => {
+        document.querySelector("#unity-loading-bar").style.display = "none";
+        document.querySelector("#unity-fullscreen-button").onclick = () => {
+          unityInstance.SetFullscreen(1);
+        };
+      }).catch((message) => {
+        alert(message);
+      });
+    };
+
+    document.body.appendChild(script);
+  </script>
+
+</body>
 </html>
