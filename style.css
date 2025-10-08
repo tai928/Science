@@ -1,51 +1,104 @@
-         h1{
-        background-color: #39C5BB;
-        text-align: center;
-        color: white;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-        h2{
-        text-align: center;
-        color: black;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        h4{
-        text-align: right;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-        p{
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-        .search-bar {
-        position: absolute;
-        top: 80px;
-        right: 10px;
-        }
-        .tytle{
-        text-align: left;    
-        }
-        .search-bar {
-        position: fixed;
-        bottom: 20px;
-        right: -85px;
-        transform: translateX(-50%);
-        }
-        .navbar {
-        background-color: #fff;
-        border:2px solid black;
-        overflow: hidden;
-        }
-        .navbar a {
-        float: left;
-        text-align: center;
-        padding: 10px 10px;
-        text-decoration: none;
-        }
-         #unity-game {
-           display: flex;
-           justify-content: center; /* 横中央 */
-         }
+/* 全体 */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  background-color: #f9fbfc; /* やわらかい白 */
+  color: #222;
+  line-height: 1.6;
+}
 
-         #unity-game iframe {
-           border: none;
-           max-width: 100%;
-         }
+/* タイトル */
+h1 {
+  background-color: #39C5BB;
+  text-align: center;
+  color: #fff;
+  padding: 20px 0;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 見出し */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-bottom: 2px solid #39C5BB;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+/* サブ見出し */
+h4 {
+  text-align: right;
+  margin: 20px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* 段落 */
+p {
+  max-width: 900px;
+  margin: 0 auto 1.5em auto;
+  padding: 0 20px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* 検索バー */
+.search-bar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 6px 14px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* ナビバー */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 2px solid #39C5BB;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #036666;
+  padding: 8px 16px;
+  border-radius: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: #39C5BB;
+  color: #fff;
+}
+
+/* Unity 埋め込み */
+#unity-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+}
+
+#unity-game iframe {
+  border: none;
+  width: 100%;
+  max-width: 1080px; /* ユーザー指定そのまま維持 */
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
