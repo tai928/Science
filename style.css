@@ -63,13 +63,12 @@ p {
 
 /* ナビバー */
 .navbar {
-  background-color: #ffffff;
+  background-color: #f9fbfc;
   border-bottom: 2px solid #39C5BB;
   overflow: hidden;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
   padding: 10px 0;
 }
 
