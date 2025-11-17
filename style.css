@@ -88,7 +88,6 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 40px 0;
 }
 
 #unity-game iframe {
@@ -96,6 +95,4 @@ p {
   width: 100%;
   max-width: 1080px; /* ユーザー指定そのまま維持 */
   aspect-ratio: 16 / 9;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
