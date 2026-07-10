@@ -1,101 +1,137 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-  <title>理科教材シミュレーション</title>
-        <iframe src="/Science/header.html" width="100%" height="200" style="border:3px;" scrolling="no"></iframe>
-          <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="塩酸と水酸化ナトリウム水溶液の中和反応を、pHとイオンモデルで確認できるシミュレーションです。">
+  <title>中和反応 | Science Lab</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
+  <script src="neutralization.js" defer></script>
+</head>
 <body>
-<h2 style="text-align: center;">中和反応</h2>
-  <main>
-    <!-- Unity WebGL埋め込み -->
-<section id="unity-game">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Science Lab ホーム">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      <span>Science Lab</span>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="global-nav">メニュー</button>
+    <nav id="global-nav" class="global-nav" aria-label="メインナビゲーション">
+      <a href="index.html">ホーム</a>
+      <a aria-current="page" href="first.html">中和反応</a>
+      <a href="second.html">粒子運動</a>
+    </nav>
+  </header>
 
+  <main class="simulation-page">
+    <section class="page-intro">
+      <div>
+        <p class="eyebrow">CHEMISTRY / NEUTRALIZATION</p>
+        <h1>中和反応シミュレーション</h1>
+        <p>塩酸と水酸化ナトリウム水溶液を混ぜ、pHとBTB溶液の色、イオンの残り方を確かめます。</p>
+      </div>
+      <a class="back-link" href="index.html">← 教材一覧へ</a>
+    </section>
 
-  <div style="position:relative; width:100%; max-width:1080px; margin:-100px auto 0; padding-top:56.25%;">
-    <!-- 56.25% = 9/16 × 100% -->
-    <iframe src="neutralizing/index.html"
-            style="position:absolute; top:0; left:0; width:100%; height:100%; margin:-60px auto 0; border:none;">
-    </iframe>
-  </div>
-</section>
+    <section class="simulation-layout" aria-label="中和反応シミュレーション">
+      <div class="simulation-main panel">
+        <div class="panel-heading">
+          <div>
+            <p class="panel-kicker">LIVE VIEW</p>
+            <h2>ビーカー内のようす</h2>
+          </div>
+          <div class="status-chip" id="solution-status">中性</div>
+        </div>
 
+        <div class="beaker-stage">
+          <canvas id="neutralization-canvas" aria-label="中和反応の粒子モデル"></canvas>
+          <div class="beaker-overlay" aria-hidden="true">
+            <span>混合液</span>
+            <strong id="total-volume-display">100 mL</strong>
+          </div>
+        </div>
 
+        <div class="metric-grid">
+          <div class="metric-card">
+            <span>pH</span>
+            <strong id="ph-display">7.0</strong>
+            <div class="ph-scale" aria-hidden="true"><span id="ph-marker"></span></div>
+          </div>
+          <div class="metric-card">
+            <span>液性</span>
+            <strong id="property-display">中性</strong>
+            <small id="indicator-display">BTB：緑色</small>
+          </div>
+          <div class="metric-card">
+            <span>生成した水</span>
+            <strong id="water-display">5.0 mmol</strong>
+            <small>H⁺ + OH⁻ → H₂O</small>
+          </div>
+        </div>
+      </div>
 
+      <aside class="control-panel panel">
+        <div class="panel-heading">
+          <div>
+            <p class="panel-kicker">CONTROLS</p>
+            <h2>実験条件</h2>
+          </div>
+          <button id="reset-neutralization" class="icon-button" type="button">リセット</button>
+        </div>
 
+        <fieldset class="control-group acid-group">
+          <legend><span class="ion-dot ion-h">H⁺</span> 塩酸 HCl</legend>
+          <label for="acid-volume">体積 <output id="acid-volume-output">50 mL</output></label>
+          <input id="acid-volume" type="range" min="0" max="100" step="1" value="50">
+          <label for="acid-concentration">濃度 <output id="acid-concentration-output">0.10 mol/L</output></label>
+          <input id="acid-concentration" type="range" min="0.01" max="0.50" step="0.01" value="0.10">
+        </fieldset>
+
+        <fieldset class="control-group base-group">
+          <legend><span class="ion-dot ion-oh">OH⁻</span> 水酸化ナトリウム NaOH</legend>
+          <label for="base-volume">体積 <output id="base-volume-output">50 mL</output></label>
+          <input id="base-volume" type="range" min="0" max="100" step="1" value="50">
+          <label for="base-concentration">濃度 <output id="base-concentration-output">0.10 mol/L</output></label>
+          <input id="base-concentration" type="range" min="0.01" max="0.50" step="0.01" value="0.10">
+        </fieldset>
+
+        <div class="quick-actions" aria-label="条件プリセット">
+          <button type="button" data-preset="acidic">酸性にする</button>
+          <button type="button" data-preset="neutral">中和点</button>
+          <button type="button" data-preset="basic">アルカリ性にする</button>
+        </div>
+
+        <div class="ion-balance" aria-live="polite">
+          <h3>反応後の粒子</h3>
+          <div><span>残った H⁺</span><strong id="h-ion-display">0.0 mmol</strong></div>
+          <div><span>残った OH⁻</span><strong id="oh-ion-display">0.0 mmol</strong></div>
+          <div><span>Na⁺ / Cl⁻</span><strong id="spectator-display">5.0 / 5.0 mmol</strong></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="learning-grid">
+      <article class="learning-card">
+        <p class="card-tag">観察ポイント</p>
+        <h2>中和点の前後を比べよう</h2>
+        <p>酸とアルカリの物質量が等しいとき、中和点になります。体積だけでなく、濃度も含めて物質量を比べることが重要です。</p>
+      </article>
+      <article class="learning-card formula-card">
+        <p class="card-tag">計算</p>
+        <h2>物質量の求め方</h2>
+        <p><span class="formula">n = c × V</span></p>
+        <p><small>n：物質量［mol］ / c：濃度［mol/L］ / V：体積［L］</small></p>
+      </article>
+      <article class="learning-card">
+        <p class="card-tag">モデルの注意</p>
+        <h2>粒子数は模式的な表示</h2>
+        <p>画面上の粒子は、実際の個数をそのまま表しているのではなく、割合を理解しやすくするために縮約して表示しています。</p>
+      </article>
+    </section>
   </main>
 
-
-  <!-- Unity WebGLスクリプト -->
-  <script>
-    var canvas = document.querySelector("#unity-canvas");
-
-    function unityShowBanner(msg, type) {
-      var warningBanner = document.querySelector("#unity-warning");
-      function updateBannerVisibility() {
-        warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-      }
-      var div = document.createElement('div');
-      div.innerHTML = msg;
-      warningBanner.appendChild(div);
-      if (type == 'error') div.style = 'background: red; padding: 10px;';
-      else if (type == 'warning') {
-        div.style = 'background: yellow; padding: 10px;';
-        setTimeout(function() {
-          warningBanner.removeChild(div);
-          updateBannerVisibility();
-        }, 5000);
-      }
-      updateBannerVisibility();
-    }
-
-    var buildUrl = "/neutralizing/Build"; // Unityビルドフォルダのパス
-    var loaderUrl = buildUrl + "/neutralizing.loader.js";
-
-    var config = {
-      dataUrl: buildUrl + "/neutralizing.data",
-      frameworkUrl: buildUrl + "/neutralizing.framework.js",
-      codeUrl: buildUrl + "/neutralizing.wasm",
-      streamingAssetsUrl: "StreamingAssets",
-      companyName: "DefaultCompany",
-      productName: "neutralizing",
-      productVersion: "1.0",
-      showBanner: unityShowBanner
-    };
-
-    // モバイル対応
-    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-      var meta = document.createElement('meta');
-      meta.name = 'viewport';
-      meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-      document.getElementsByTagName('head')[0].appendChild(meta);
-      document.querySelector("#unity-container").className = "unity-mobile";
-      canvas.className = "unity-mobile";
-    } else {
-      canvas.style.width = "960px";
-      canvas.style.height = "600px";
-    }
-
-    document.querySelector("#unity-loading-bar").style.display = "block";
-
-    var script = document.createElement("script");
-    script.src = loaderUrl;
-    script.onload = () => {
-      createUnityInstance(canvas, config, (progress) => {
-        document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
-      }).then((unityInstance) => {
-        document.querySelector("#unity-loading-bar").style.display = "none";
-        document.querySelector("#unity-fullscreen-button").onclick = () => {
-          unityInstance.SetFullscreen(1);
-        };
-      }).catch((message) => {
-        alert(message);
-      });
-    };
-
-    document.body.appendChild(script);
-  </script>
-
+  <footer class="site-footer">
+    <p>Science Lab — Neutralization simulation</p>
+  </footer>
 </body>
 </html>
