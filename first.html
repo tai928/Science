@@ -4,31 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="塩酸と水酸化ナトリウム水溶液の中和反応を、pHとイオンモデルで確認できるシミュレーションです。">
-  <title>中和反応 | Science Lab</title>
+  <title>中和反応 | 理科シミュレーション</title>
   <link rel="stylesheet" href="style.css">
   <script src="site.js" defer></script>
   <script src="neutralization.js" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Science Lab ホーム">
-      <span class="brand-mark" aria-hidden="true">S</span>
-      <span>Science Lab</span>
+    <a class="brand" href="index.html" aria-label="理科シミュレーション ホーム">
+      <span class="brand-mark" aria-hidden="true">理</span>
+      <span>理科シミュレーション</span>
     </a>
-    <button class="menu-button" type="button" aria-expanded="false" aria-controls="global-nav">メニュー</button>
-    <nav id="global-nav" class="global-nav" aria-label="メインナビゲーション">
-      <a href="index.html">ホーム</a>
-      <a aria-current="page" href="first.html">中和反応</a>
-      <a href="second.html">粒子運動</a>
-    </nav>
+    <div class="menu-area">
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="global-nav" aria-label="メニューを開く">
+        <span class="sr-only">メニュー</span>
+        <span class="line" aria-hidden="true"></span>
+        <span class="line" aria-hidden="true"></span>
+        <span class="line" aria-hidden="true"></span>
+      </button>
+      <nav id="global-nav" class="global-nav" aria-label="メインナビゲーション">
+        <a href="index.html">ホーム</a>
+        <a aria-current="page" href="first.html">中和反応</a>
+        <a href="second.html">粒子運動</a>
+      </nav>
+    </div>
   </header>
 
   <main class="simulation-page">
     <section class="page-intro">
       <div>
-        <p class="eyebrow">CHEMISTRY / NEUTRALIZATION</p>
+        <p class="eyebrow">化学</p>
         <h1>中和反応シミュレーション</h1>
-        <p>塩酸と水酸化ナトリウム水溶液を混ぜ、pHとBTB溶液の色、イオンの残り方を確かめます。</p>
+        <p>塩酸と水酸化ナトリウム水溶液を混ぜ、pH、BTB溶液の色、イオンの残り方を確かめます。</p>
       </div>
       <a class="back-link" href="index.html">← 教材一覧へ</a>
     </section>
@@ -37,7 +44,7 @@
       <div class="simulation-main panel">
         <div class="panel-heading">
           <div>
-            <p class="panel-kicker">LIVE VIEW</p>
+            <p class="panel-kicker">観察画面</p>
             <h2>ビーカー内のようす</h2>
           </div>
           <div class="status-chip" id="solution-status">中性</div>
@@ -73,7 +80,7 @@
       <aside class="control-panel panel">
         <div class="panel-heading">
           <div>
-            <p class="panel-kicker">CONTROLS</p>
+            <p class="panel-kicker">操作</p>
             <h2>実験条件</h2>
           </div>
           <button id="reset-neutralization" class="icon-button" type="button">リセット</button>
@@ -125,13 +132,14 @@
       <article class="learning-card">
         <p class="card-tag">モデルの注意</p>
         <h2>粒子数は模式的な表示</h2>
-        <p>画面上の粒子は、実際の個数をそのまま表しているのではなく、割合を理解しやすくするために縮約して表示しています。</p>
+        <p>画面上の粒子は実際の個数ではなく、割合を理解しやすくするために縮約して表示しています。</p>
       </article>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>Science Lab — Neutralization simulation</p>
+    <p>理科シミュレーション</p>
+    <p><small>中和反応</small></p>
   </footer>
 </body>
 </html>
