@@ -4,31 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="温度と物質の状態を変え、粒子の運動と並び方を比較するシミュレーションです。">
-  <title>粒子運動・状態変化 | Science Lab</title>
+  <title>粒子運動・状態変化 | 理科シミュレーション</title>
   <link rel="stylesheet" href="style.css">
   <script src="site.js" defer></script>
   <script src="particles.js" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Science Lab ホーム">
-      <span class="brand-mark" aria-hidden="true">S</span>
-      <span>Science Lab</span>
+    <a class="brand" href="index.html" aria-label="理科シミュレーション ホーム">
+      <span class="brand-mark" aria-hidden="true">理</span>
+      <span>理科シミュレーション</span>
     </a>
-    <button class="menu-button" type="button" aria-expanded="false" aria-controls="global-nav">メニュー</button>
-    <nav id="global-nav" class="global-nav" aria-label="メインナビゲーション">
-      <a href="index.html">ホーム</a>
-      <a href="first.html">中和反応</a>
-      <a aria-current="page" href="second.html">粒子運動</a>
-    </nav>
+    <div class="menu-area">
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="global-nav" aria-label="メニューを開く">
+        <span class="sr-only">メニュー</span>
+        <span class="line" aria-hidden="true"></span>
+        <span class="line" aria-hidden="true"></span>
+        <span class="line" aria-hidden="true"></span>
+      </button>
+      <nav id="global-nav" class="global-nav" aria-label="メインナビゲーション">
+        <a href="index.html">ホーム</a>
+        <a href="first.html">中和反応</a>
+        <a aria-current="page" href="second.html">粒子運動</a>
+      </nav>
+    </div>
   </header>
 
   <main class="simulation-page">
     <section class="page-intro">
       <div>
-        <p class="eyebrow">PARTICLE MODEL / STATE CHANGE</p>
+        <p class="eyebrow">物理・化学</p>
         <h1>粒子運動・状態変化</h1>
-        <p>温度を変えたとき、粒子の速さ・間隔・並び方がどのように変化するか観察します。</p>
+        <p>温度を変えたとき、粒子の速さ、間隔、並び方がどのように変化するか観察します。</p>
       </div>
       <a class="back-link" href="index.html">← 教材一覧へ</a>
     </section>
@@ -37,7 +44,7 @@
       <div class="simulation-main panel">
         <div class="panel-heading">
           <div>
-            <p class="panel-kicker">PARTICLE VIEW</p>
+            <p class="panel-kicker">観察画面</p>
             <h2>容器内の粒子</h2>
           </div>
           <div class="status-chip state-chip" id="state-status">液体</div>
@@ -70,7 +77,7 @@
       <aside class="control-panel panel">
         <div class="panel-heading">
           <div>
-            <p class="panel-kicker">CONTROLS</p>
+            <p class="panel-kicker">操作</p>
             <h2>観察条件</h2>
           </div>
           <button id="reset-particles" class="icon-button" type="button">リセット</button>
@@ -114,7 +121,7 @@
     <section class="comparison-section panel">
       <div class="panel-heading">
         <div>
-          <p class="panel-kicker">COMPARE</p>
+          <p class="panel-kicker">比較</p>
           <h2>3つの状態を比較</h2>
         </div>
       </div>
@@ -139,7 +146,8 @@
   </main>
 
   <footer class="site-footer">
-    <p>Science Lab — Particle motion simulation</p>
+    <p>理科シミュレーション</p>
+    <p><small>粒子運動・状態変化</small></p>
   </footer>
 </body>
 </html>
