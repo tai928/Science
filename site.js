@@ -13,8 +13,7 @@ if (menuArea && menuButton && globalNav) {
   };
 
   menuButton.addEventListener('click', () => {
-    const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-    setMenu(!isOpen);
+    setMenu(menuButton.getAttribute('aria-expanded') !== 'true');
   });
 
   globalNav.addEventListener('click', (event) => {
@@ -31,19 +30,4 @@ if (menuArea && menuButton && globalNav) {
       menuButton.focus();
     }
   });
-}
-
-const existingSimulationPage = document.querySelector('main.simulation-page');
-if (existingSimulationPage && !document.querySelector('.textbook-placeholder')) {
-  if (!document.querySelector('link[href="curriculum.css"]')) {
-    const stylesheet = document.createElement('link');
-    stylesheet.rel = 'stylesheet';
-    stylesheet.href = 'curriculum.css';
-    document.head.appendChild(stylesheet);
-  }
-
-  const explanation = document.createElement('section');
-  explanation.className = 'textbook-placeholder';
-  explanation.innerHTML = '<h2>教科書による解説</h2><p>使用する教科書に合わせた説明を追加するための欄です。</p><div class="textbook-editor-space"></div>';
-  existingSimulationPage.appendChild(explanation);
 }
