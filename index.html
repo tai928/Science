@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="中学化学を1ページで切り替えて学べる研究用シミュレーション教材です。">
+  <meta name="description" content="中学化学シミュレーション">
   <title>理科シミュレーション</title>
   <link rel="stylesheet" href="style.css">
   <script src="site.js" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="理科シミュレーション ホーム">
+    <a class="brand" href="index.html" aria-label="ホーム">
       <span class="brand-mark" aria-hidden="true">理</span>
       <span>理科シミュレーション</span>
     </a>
@@ -24,65 +24,49 @@
       <nav id="global-nav" class="global-nav" aria-label="メインナビゲーション">
         <a aria-current="page" href="index.html">ホーム</a>
         <a href="chemistry.html">中学化学</a>
-        <a href="#about">このサイトについて</a>
       </nav>
     </div>
   </header>
 
   <main class="home-page">
     <section class="hero">
-      <p class="section-label">研究用Web教材</p>
-      <h1>中学化学を、操作して確かめる</h1>
-      <p class="hero-description">中学1〜3年の化学分野を、1つのページで切り替えながら学べます。学年や単元を変えてもページ全体は再読み込みされません。</p>
+      <h1>中学化学を、動かして学ぶ。</h1>
       <div class="hero-actions">
-        <a class="button button-primary" href="chemistry.html">中学化学を開く</a>
-        <a class="button" href="#about">サイトの目的を見る</a>
+        <a class="button button-primary" href="chemistry.html#grade-1">はじめる</a>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="materials-title">
+    <section class="section" aria-labelledby="grades-title">
       <div class="section-heading">
-        <p class="section-label">収録内容</p>
-        <h2 id="materials-title">中学1年から3年までを1ページに集約</h2>
-        <p>密度、気体、溶解度、状態変化、質量保存、酸化還元、イオン、電気分解、化学電池、中和を収録しています。</p>
+        <h2 id="grades-title">学年から選ぶ</h2>
       </div>
       <div class="material-grid">
         <article class="material-card">
-          <div class="card-number">01</div>
           <div class="card-content">
             <p class="card-tag">中学1年</p>
             <h3>物質の性質と状態変化</h3>
-            <ul class="card-points"><li>密度と物質の区別</li><li>気体の性質</li><li>溶解度と結晶</li><li>粒子運動・状態変化</li></ul>
-            <a class="text-link" href="chemistry.html#density">中学1年から始める <span aria-hidden="true">→</span></a>
+            <ul class="card-points"><li>密度</li><li>気体</li><li>溶解度</li><li>粒子運動</li></ul>
+            <a class="text-link" href="chemistry.html#grade-1">開く <span aria-hidden="true">→</span></a>
           </div>
         </article>
         <article class="material-card">
-          <div class="card-number">02</div>
           <div class="card-content">
             <p class="card-tag">中学2年</p>
             <h3>化学変化と質量</h3>
-            <ul class="card-points"><li>質量保存の法則</li><li>酸化と還元</li></ul>
-            <a class="text-link" href="chemistry.html#mass">中学2年から始める <span aria-hidden="true">→</span></a>
+            <ul class="card-points"><li>質量保存</li><li>酸化と還元</li></ul>
+            <a class="text-link" href="chemistry.html#grade-2">開く <span aria-hidden="true">→</span></a>
           </div>
         </article>
         <article class="material-card">
-          <div class="card-number">03</div>
           <div class="card-content">
             <p class="card-tag">中学3年</p>
             <h3>イオンと化学反応</h3>
-            <ul class="card-points"><li>イオンと沈殿</li><li>電気分解</li><li>化学電池</li><li>酸・アルカリと中和</li></ul>
-            <a class="text-link" href="chemistry.html#precipitation">中学3年から始める <span aria-hidden="true">→</span></a>
+            <ul class="card-points"><li>沈殿</li><li>電気分解</li><li>化学電池</li><li>中和</li></ul>
+            <a class="text-link" href="chemistry.html#grade-3">開く <span aria-hidden="true">→</span></a>
           </div>
         </article>
       </div>
     </section>
-
-    <section id="about" class="section about-section" aria-labelledby="about-title">
-      <div><p class="section-label">このサイトについて</p><h2 id="about-title">興味を、理解につなげる</h2></div>
-      <div class="about-copy"><p>このサイトは、理科への興味や苦手意識に関する研究の一環として制作しています。文章や静止画では分かりにくい変化を、自分の操作で確認できるようにしています。</p><div class="feature-list"><div><strong>1ページ</strong><span>学年や単元を切り替えても全体を再読み込みしない</span></div><div><strong>分かりやすい</strong><span>操作した結果を数値・色・粒子で表示</span></div><div><strong>追記可能</strong><span>各単元に教科書による解説欄を用意</span></div></div></div>
-    </section>
   </main>
-
-  <footer class="site-footer"><p>理科シミュレーション</p><p><small>研究用Web教材</small></p></footer>
 </body>
 </html>
