@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="中学1年から3年までの化学分野を、1ページで切り替えて学べるシミュレーション教材です。">
+  <meta name="description" content="中学1年から3年までの化学シミュレーション">
   <title>中学化学 | 理科シミュレーション</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="chemistry.css">
   <script src="site.js" defer></script>
   <script src="chemistry.js" defer></script>
+  <script src="chemistry-route.js" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="理科シミュレーション ホーム">
+    <a class="brand" href="index.html" aria-label="ホーム">
       <span class="brand-mark" aria-hidden="true">理</span>
       <span>理科シミュレーション</span>
     </a>
@@ -31,14 +32,10 @@
   </header>
 
   <main class="chemistry-page">
-    <section class="chemistry-intro">
-      <p class="section-label">中学1〜3年 化学分野</p>
-      <h1>中学化学</h1>
-      <p>学年と単元を選ぶと、同じページ内でシミュレーションが切り替わります。</p>
-    </section>
+    <h1>中学化学</h1>
 
     <div class="chemistry-layout">
-      <aside class="curriculum-nav" aria-label="学年と単元">
+      <aside class="curriculum-nav" aria-label="単元選択">
         <div class="grade-tabs" id="grade-tabs"></div>
         <div class="unit-list" id="unit-list"></div>
       </aside>
@@ -46,27 +43,15 @@
       <section class="simulation-area" aria-live="polite">
         <header class="simulation-header">
           <div>
-            <p class="section-label" id="topic-grade"></p>
+            <p id="topic-grade"></p>
             <h2 id="topic-title"></h2>
             <p id="topic-description"></p>
           </div>
-          <button id="reset-topic" class="reset-button" type="button">初期状態に戻す</button>
+          <button id="reset-topic" class="reset-button" type="button">リセット</button>
         </header>
-
         <div id="simulation-content"></div>
-
-        <section class="textbook-section" aria-labelledby="textbook-title">
-          <h2 id="textbook-title">教科書による解説</h2>
-          <p>使用する教科書に合わせて、ここへ解説を追加してください。</p>
-          <div class="textbook-empty" aria-label="教科書による解説の記入欄"></div>
-        </section>
       </section>
     </div>
   </main>
-
-  <footer class="site-footer">
-    <p>理科シミュレーション</p>
-    <p><small>中学化学</small></p>
-  </footer>
 </body>
 </html>
