@@ -1,28 +1,48 @@
-# Science Lab
+# 理科シミュレーション
 
-研究用の理科教材シミュレーションサイトです。
+中学化学の主要単元を、操作しながら確認できる研究用Web教材です。
 
-## 教材
+## ページ構成
 
-- 中和反応シミュレーション
-  - HCl / NaOH の体積と濃度を変更
-  - pH、液性、BTB溶液の色を即時表示
-  - H⁺、OH⁻、H₂O、Na⁺、Cl⁻を模式的に可視化
-- 粒子運動・状態変化シミュレーション
-  - 固体・液体・気体の粒子モデルを比較
-  - 温度による運動の変化を表示
-  - 軌跡表示、一時停止に対応
+- `index.html`：サイト概要と中学化学ページへの入口
+- `chemistry.html`：中学1〜3年の全シミュレーション
 
-## 構成
+`chemistry.html`では、学年・単元を切り替えてもページ全体を再読み込みしません。URLのハッシュだけを変更し、JavaScriptで表示内容を差し替えます。
 
-外部ライブラリやUnity WebGLを使用せず、HTML / CSS / JavaScriptのみで動作します。
+例：
 
-- `index.html` 教材一覧・研究概要
-- `first.html` 中和反応
-- `second.html` 粒子運動・状態変化
-- `neutralization.js` 中和反応の計算・描画
-- `particles.js` 粒子運動の計算・描画
-- `site.js` 共通ナビゲーション
-- `style.css` 共通デザイン
+- `chemistry.html#density`
+- `chemistry.html#particles`
+- `chemistry.html#neutralization`
 
-既存のUnityビルドファイルはロールバック用に残していますが、新しいページからは参照していません。
+## 収録単元
+
+### 中学1年
+
+- 密度と物質の区別
+- 気体の性質
+- 溶解度と結晶
+- 粒子運動・状態変化
+
+### 中学2年
+
+- 質量保存の法則
+- 酸化と還元
+
+### 中学3年
+
+- イオンと沈殿
+- 電気分解
+- 化学電池
+- 酸・アルカリと中和
+
+## ファイル構成
+
+- `index.html`
+- `chemistry.html`
+- `style.css`
+- `chemistry.css`
+- `site.js`
+- `chemistry.js`
+
+外部ライブラリやUnity WebGLは使用していません。各単元には、教科書に合わせた文章を追加するための「教科書による解説」欄を用意しています。

@@ -1,1 +1,72 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>中学化学 | 理科シミュレーション</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="curriculum.css"><script src="site.js" defer></script></head><body><header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">理</span><span>理科シミュレーション</span></a><div class="menu-area"><button class="menu-button" type="button" aria-expanded="false" aria-controls="global-nav" aria-label="メニューを開く"><span class="sr-only">メニュー</span><span class="line"></span><span class="line"></span><span class="line"></span></button><nav id="global-nav" class="global-nav"><a href="index.html">ホーム</a><a aria-current="page" href="chemistry.html">中学化学</a><a href="grade1.html">中学1年</a><a href="grade2.html">中学2年</a><a href="grade3.html">中学3年</a></nav></div></header><main class="curriculum-page"><section class="curriculum-intro"><p class="section-label">学年別シミュレーション</p><h1>中学化学</h1><p>学年を選んでから、学びたい単元のシミュレーションを開きます。</p></section><section class="grade-grid"><article class="grade-card"><p class="card-tag">中学1年</p><h2>物質の性質と状態変化</h2><ul><li>密度と物質</li><li>気体の性質</li><li>溶解度と結晶</li><li>粒子運動・状態変化</li></ul><a href="grade1.html">中学1年を開く →</a></article><article class="grade-card"><p class="card-tag">中学2年</p><h2>化学変化と質量</h2><ul><li>質量保存の法則</li><li>酸化と還元</li></ul><a href="grade2.html">中学2年を開く →</a></article><article class="grade-card"><p class="card-tag">中学3年</p><h2>イオンと化学反応</h2><ul><li>イオンと沈殿</li><li>電気分解</li><li>化学電池</li><li>酸・アルカリと中和</li></ul><a href="grade3.html">中学3年を開く →</a></article></section></main><footer class="site-footer"><p>理科シミュレーション</p><p><small>中学化学</small></p></footer></body></html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="中学1年から3年までの化学分野を、1ページで切り替えて学べるシミュレーション教材です。">
+  <title>中学化学 | 理科シミュレーション</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chemistry.css">
+  <script src="site.js" defer></script>
+  <script src="chemistry.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="理科シミュレーション ホーム">
+      <span class="brand-mark" aria-hidden="true">理</span>
+      <span>理科シミュレーション</span>
+    </a>
+    <div class="menu-area">
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="global-nav" aria-label="メニューを開く">
+        <span class="sr-only">メニュー</span>
+        <span class="line" aria-hidden="true"></span>
+        <span class="line" aria-hidden="true"></span>
+        <span class="line" aria-hidden="true"></span>
+      </button>
+      <nav id="global-nav" class="global-nav" aria-label="メインナビゲーション">
+        <a href="index.html">ホーム</a>
+        <a aria-current="page" href="chemistry.html">中学化学</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="chemistry-page">
+    <section class="chemistry-intro">
+      <p class="section-label">中学1〜3年 化学分野</p>
+      <h1>中学化学</h1>
+      <p>学年と単元を選ぶと、同じページ内でシミュレーションが切り替わります。</p>
+    </section>
+
+    <div class="chemistry-layout">
+      <aside class="curriculum-nav" aria-label="学年と単元">
+        <div class="grade-tabs" id="grade-tabs"></div>
+        <div class="unit-list" id="unit-list"></div>
+      </aside>
+
+      <section class="simulation-area" aria-live="polite">
+        <header class="simulation-header">
+          <div>
+            <p class="section-label" id="topic-grade"></p>
+            <h2 id="topic-title"></h2>
+            <p id="topic-description"></p>
+          </div>
+          <button id="reset-topic" class="reset-button" type="button">初期状態に戻す</button>
+        </header>
+
+        <div id="simulation-content"></div>
+
+        <section class="textbook-section" aria-labelledby="textbook-title">
+          <h2 id="textbook-title">教科書による解説</h2>
+          <p>使用する教科書に合わせて、ここへ解説を追加してください。</p>
+          <div class="textbook-empty" aria-label="教科書による解説の記入欄"></div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>理科シミュレーション</p>
+    <p><small>中学化学</small></p>
+  </footer>
+</body>
+</html>
