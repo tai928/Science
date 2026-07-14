@@ -1,19 +1,21 @@
 # 理科シミュレーション
 
-中学化学の主要単元を、操作しながら確認できる研究用Web教材です。
+中学化学のシミュレーション教材です。
 
-## ページ構成
+## ページ
 
-- `index.html`：サイト概要と中学化学ページへの入口
-- `chemistry.html`：中学1〜3年の全シミュレーション
+- `index.html`：トップ
+- `chemistry.html`：中学1〜3年のシミュレーション
 
-`chemistry.html`では、学年・単元を切り替えてもページ全体を再読み込みしません。URLのハッシュだけを変更し、JavaScriptで表示内容を差し替えます。
+学年・単元の切り替えでは、ページ全体を再読み込みしません。
 
-例：
+## URL
 
-- `chemistry.html#density`
-- `chemistry.html#particles`
-- `chemistry.html#neutralization`
+- `chemistry.html#grade-1`
+- `chemistry.html#grade-2`
+- `chemistry.html#grade-3`
+- `chemistry.html#grade-1/density`
+- `chemistry.html#grade-3/neutralization`
 
 ## 収録単元
 
@@ -36,7 +38,7 @@
 - 化学電池
 - 酸・アルカリと中和
 
-## ファイル構成
+## ファイル
 
 - `index.html`
 - `chemistry.html`
@@ -44,5 +46,6 @@
 - `chemistry.css`
 - `site.js`
 - `chemistry.js`
+- `chemistry-route.js`
 
-外部ライブラリやUnity WebGLは使用していません。各単元には、教科書に合わせた文章を追加するための「教科書による解説」欄を用意しています。
+HTML / CSS / JavaScriptのみで動作します。
