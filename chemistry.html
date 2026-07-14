@@ -27,12 +27,16 @@
       <nav id="global-nav" class="global-nav" aria-label="メインナビゲーション">
         <a href="index.html">ホーム</a>
         <a aria-current="page" href="chemistry.html">中学化学</a>
+        <a href="index.html#about">About</a>
       </nav>
     </div>
   </header>
 
   <main class="chemistry-page">
-    <h1>中学化学</h1>
+    <div class="page-heading">
+      <h1>中学化学</h1>
+      <p>学年と単元を選択</p>
+    </div>
 
     <div class="chemistry-layout">
       <aside class="curriculum-nav" aria-label="単元選択">
@@ -40,17 +44,32 @@
         <div class="unit-list" id="unit-list"></div>
       </aside>
 
-      <section class="simulation-area" aria-live="polite">
-        <header class="simulation-header">
-          <div>
-            <p id="topic-grade"></p>
-            <h2 id="topic-title"></h2>
-            <p id="topic-description"></p>
+      <div class="content-column">
+        <section class="simulation-area" aria-live="polite">
+          <header class="simulation-header">
+            <div>
+              <p id="topic-grade"></p>
+              <h2 id="topic-title"></h2>
+              <p id="topic-description"></p>
+            </div>
+            <button id="reset-topic" class="reset-button" type="button">リセット</button>
+          </header>
+          <div id="simulation-content"></div>
+        </section>
+
+        <section class="textbook-section" aria-labelledby="textbook-title">
+          <div class="textbook-heading">
+            <div>
+              <p class="textbook-label">TEXTBOOK</p>
+              <h2 id="textbook-title">教科書による解説</h2>
+            </div>
+            <span id="textbook-topic-name"></span>
           </div>
-          <button id="reset-topic" class="reset-button" type="button">リセット</button>
-        </header>
-        <div id="simulation-content"></div>
-      </section>
+          <div class="textbook-content" id="textbook-content">
+            <p>ここに教科書を参考にした解説を追加</p>
+          </div>
+        </section>
+      </div>
     </div>
   </main>
 </body>
