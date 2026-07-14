@@ -21,9 +21,15 @@ function topicFromRoute() {
   return topicById.get(route) || topics[0];
 }
 
+function syncTextbookHeading(topic) {
+  const label = document.querySelector('#textbook-topic-name');
+  if (label) label.textContent = `中学${topic.grade}年｜${topic.name}`;
+}
+
 function applyRoute(replace = true) {
   const topic = topicFromRoute();
   openTopic(topic.id, false);
+  syncTextbookHeading(topic);
   const canonical = routeFor(topic, /^#grade-[1-3]$/.test(location.hash));
   if (location.hash !== canonical) {
     history[replace ? 'replaceState' : 'pushState'](null, '', canonical);
@@ -37,6 +43,7 @@ gradeTabs.addEventListener('click', (event) => {
   event.stopImmediatePropagation();
   const topic = topics.find((item) => item.grade === Number(button.dataset.grade));
   openTopic(topic.id, false);
+  syncTextbookHeading(topic);
   history.pushState(null, '', routeFor(topic, true));
 }, true);
 
@@ -47,6 +54,7 @@ unitList.addEventListener('click', (event) => {
   event.stopImmediatePropagation();
   const topic = topicById.get(button.dataset.topic);
   openTopic(topic.id, false);
+  syncTextbookHeading(topic);
   history.pushState(null, '', routeFor(topic));
 }, true);
 
