@@ -19,5 +19,17 @@ window.textbookExplanations = {
   precipitation: ``,
   electrolysis: ``,
   battery: ``,
-  neutralization: ``
+  neutralization: `
+  <h3>酸性の性質</h3>
+  <ul>
+  <li> 緑色のBTB液(中性)に入れると黄色になる
+  <li>マグネシウムを入れると水素が発生する
+  <li>電解質の水溶液
+</ul>
+<h3>アルカリ性(塩基性)の性質</h3>
+  <ul>
+  <li> 緑色のBTB液(中性)に入れると青色になる
+  <li>フェノールフタレイン液を入れると赤色になる
+  <li>電解質の水溶液
+</ul>`
 };
