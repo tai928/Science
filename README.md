@@ -7,8 +7,6 @@
 - `index.html`：トップ
 - `chemistry.html`：中学1〜3年のシミュレーション
 
-学年・単元の切り替えでは、ページ全体を再読み込みしません。
-
 ## URL
 
 - `chemistry.html#grade-1`
@@ -47,5 +45,3 @@
 - `site.js`
 - `chemistry.js`
 - `chemistry-route.js`
-
-HTML / CSS / JavaScriptのみで動作します。
