@@ -380,7 +380,7 @@ button {
   text-decoration:underline
 }
 
-.about-section {
+.about-section,link-section {
   display:grid;
   grid-template-columns:minmax(0,0.8fr) minmax(0,1.2fr);
   gap:64px
@@ -955,11 +955,11 @@ input[type="range"] {
 }
 
 @media (max-width:900px) {
-  .material-grid,.about-section,.simulation-layout {
+  .material-grid,.about-section,.link-section,.simulation-layout {
     grid-template-columns:1fr
   }
 
-  .about-section {
+  .about-section,.link-section {
     gap:24px
   }
 
