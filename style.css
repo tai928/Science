@@ -297,16 +297,16 @@ button {
   margin-bottom:24px
 }
 
-.section-heading h2,.about-section h2,.panel h2,.learning-card h2 {
+.section-heading h2,.about-section h2,.link-section h2,.panel h2,.learning-card h2 {
   margin:0;
   line-height:1.35
 }
 
-.section-heading h2,.about-section h2 {
+.section-heading h2,.about-section h2.link-section h2 {
   font-size:clamp(1.6rem,4vw,2.4rem)
 }
 
-.section-heading p:last-child,.about-copy > p {
+.section-heading p:last-child,.about-copy > p .link-copy > p {
   color:var(--muted)
 }
 
