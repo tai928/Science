@@ -1062,3 +1062,98 @@ input[type="range"] {
   }
 
 }
+
+.head {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 180px;
+  padding: 30px 20px;
+  overflow: hidden;
+
+  font-family: "Arial Black", "Impact", sans-serif;
+  font-size: clamp(3rem, 9vw, 9rem);
+  font-weight: 1000;
+  line-height: 1.1;
+  letter-spacing: -0.06em;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #fff;
+  background: #ff00a8;
+  -webkit-text-stroke: 2px #000;
+  text-shadow:
+    4px 4px 0 #000,
+    8px 8px 0 #00ffff,
+    -5px -5px 0 #ffff00,
+    0 0 30px #ff0000;
+
+  animation:
+    head-shake 0.18s infinite alternate,
+    head-pop 0.7s infinite alternate,
+    head-color 1.5s infinite steps(1);
+}
+
+/* 背後に派手なストライプ */
+.head::before {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  z-index: 0;
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    45deg,
+    transparent 0 25px,
+    rgba(255, 255, 0, 0.4) 25px 50px
+  );
+
+  animation: stripe-move 1s linear infinite;
+}
+
+.head > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 激しく揺れる */
+@keyframes head-shake {
+  0%   { translate: -3px 2px; rotate: -1deg; }
+  100% { translate: 3px -2px; rotate: 1deg; }
+}
+
+/* 文字が飛び出す */
+@keyframes head-pop {
+  0%   { scale: 1; }
+  100% { scale: 1.06; }
+}
+
+/* 背景色が切り替わる */
+@keyframes head-color {
+  0%, 100% { background-color: #ff00a8; }
+  33% { background-color: #7400ff; }
+  66% { background-color: #ff4d00; }
+}
+
+/* ストライプが流れる */
+@keyframes stripe-move {
+  to { transform: translate(50px, 50px); }
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+  .head {
+    min-height: 130px;
+    font-size: clamp(2.5rem, 12vw, 5rem);
+    -webkit-text-stroke: 1px #000;
+  }
+}
+
+/* 動きを減らす設定にも対応 */
+@media (prefers-reduced-motion: reduce) {
+  .head,
+  .head::before {
+    animation: none;
+  }
+}
