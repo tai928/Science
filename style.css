@@ -1068,13 +1068,13 @@ input[type="range"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 180px;
+  min-height: 32px;
   padding: 30px 20px;
   overflow: hidden;
 
   font-family: "Arial Black", "Impact", sans-serif;
   font-size: clamp(3rem, 9vw, 9rem);
-  font-weight: 300;
+  font-weight: 100;
   line-height: 1.1;
   letter-spacing: -0.06em;
   text-align: center;
